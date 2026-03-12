@@ -1,0 +1,20 @@
+# Use a minimal Python image
+FROM python:3.10-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Install dependencies (simulated here for demonstration)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the Phase 5 backend code (which includes Phase 2 DB rules + Phase 3 Groq + Phase 5 Cache)
+COPY ["PHASE 5/src/", "./src/"]
+# Copy the Database generated from Phase 1
+COPY ["PHASE 1/zomato.db", "../PHASE 1/zomato.db"]
+
+# Expose the API port
+EXPOSE 8000
+
+# Command to run the FastAPI app
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
