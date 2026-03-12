@@ -168,3 +168,11 @@ tmp/
 temp/
 *.tmp
 *.temp
+PHASE 1/dataset/
+*.csv
+.env
+__pycache__/
+PHASE 1/dataset/zomato_raw.csv
+# Ignore datasets
+*.csv
+dataset/
