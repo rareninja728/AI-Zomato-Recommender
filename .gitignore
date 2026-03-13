@@ -154,10 +154,10 @@ Thumbs.db
 # Streamlit
 .streamlit/
 
-# Database files
-*.db
+# Database files (except our specific one)
 *.sqlite
 *.sqlite3
+# Ignore other database files but not zomato.db
 
 # Logs
 logs/

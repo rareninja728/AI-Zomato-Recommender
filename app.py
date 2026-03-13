@@ -24,6 +24,11 @@ _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _DEFAULT_DB = os.path.normpath(os.path.join(_THIS_DIR, 'PHASE 1', 'zomato.db'))
 DB_PATH = os.environ.get("DB_PATH", _DEFAULT_DB)
 
+# Verify database exists
+if not os.path.exists(DB_PATH):
+    st.error(f"Database not found at: {DB_PATH}")
+    st.stop()
+
 # In-memory cache for LLM responses
 LLM_CACHE: Dict[str, List[Dict]] = {}
 
