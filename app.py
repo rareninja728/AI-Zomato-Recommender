@@ -357,7 +357,7 @@ def main():
     
     # Header
     st.markdown('<h1 class="main-header">🍽️ Zomato AI Recommender</h1>', unsafe_allow_html=True)
-    st.markdown("### Find your perfect dining experience with AI-powered recommendations")
+    st.markdown('<div style="text-align: center;">### Find your perfect dining experience with AI-powered recommendations</div>', unsafe_allow_html=True)
     
     # Load metadata
     metadata = get_metadata()
