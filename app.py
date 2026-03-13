@@ -13,7 +13,11 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'PHASE 5'))
 # Load environment variables
 from dotenv import load_dotenv
 _env_path = os.path.join(os.path.dirname(__file__), 'PHASE 3', '.env')
-load_dotenv(dotenv_path=_env_path, override=True)
+if os.path.exists(_env_path):
+    load_dotenv(dotenv_path=_env_path, override=True)
+else:
+    # For deployment, try to load from root or environment
+    load_dotenv(override=True)
 
 # Database configuration
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
